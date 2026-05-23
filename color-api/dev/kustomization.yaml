@@ -5,6 +5,8 @@ namespace: dev
 
 resources:
   - ../_base
+  - ./managed-cert.yaml
+  - ./ingress.yaml
 
 
 patches:

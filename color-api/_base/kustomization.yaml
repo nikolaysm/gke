@@ -4,9 +4,10 @@ kind: Kustomization
 resources:
 - color-api.yaml
 - color-svc.yaml
+- ./network-policies/allow-external.yaml
 
-labels:
-- includeSelectors: true
-  pairs:
-    app: color-api
-    project: proj-gke
+# labels:
+# - includeSelectors: true
+#   pairs:
+#     app: color-api
+#     project: proj-gke

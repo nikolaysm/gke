@@ -5,6 +5,8 @@ namespace: prod
 
 resources:
   - ../_base
+  - ./managed-cert.yaml
+  - ./ingress.yaml
 
 
 patches:

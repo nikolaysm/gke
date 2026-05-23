@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - mongodb-ss.yaml
 - mongodb-svc.yaml
+- ./network-policies/allow-color-api.yaml
 
 
 configMapGenerator:
@@ -11,8 +12,8 @@ configMapGenerator:
   - mongo-init.js
   name: mongodb-init-colordb
 
-labels:
-- includeSelectors: true
-  pairs:
-    app: mongodb
-    project: proj-gke
+# labels:
+# - includeSelectors: true
+#   pairs:
+#     app: mongodb
+#     project: proj-gke

@@ -5,3 +5,10 @@ namespace: prod
 
 resources:
   - ../_base
+
+patches:
+  - path: use-premium-storage.yaml
+    target:
+      version: v1
+      group: apps
+      kind: StatefulSet

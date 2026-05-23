@@ -10,6 +10,7 @@ configMapGenerator:
 - files:
   - mongo-init.js
   name: mongodb-init-colordb
+
 labels:
 - includeSelectors: true
   pairs:

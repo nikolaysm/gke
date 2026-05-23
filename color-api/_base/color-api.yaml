@@ -13,7 +13,8 @@ spec:
     spec:
       containers:
       - name: color-api
-        image: nikolaysm/color-api:2.0.0
+        image: nikolaysm/color-api:2.0.3
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "64Mi"
@@ -22,20 +23,17 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         env:
-        - name: DB_USER
-          valueFrom:
-            secretKeyRef:
-              key: USERNAME
-              name: mongodb-colordb-creds
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              key: PASSWORD
-              name: mongodb-colordb-creds
-        - name: DB_URL
-          valueFrom:
-            secretKeyRef:
-              key: DB_URL
-              name: mongodb-colordb-creds
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: mongodb-colordb-creds
+                key: USERNAME
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongodb-colordb-creds
+                key: PASSWORD
+          - name: DB_URL
+            value: "mongodb://$(DB_USER):$(DB_PASSWORD)@mongodb-ss-0.mongodb-svc:27017/colordb"
         ports:
         - containerPort: 80

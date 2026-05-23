@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
 - color-api.yaml
+- color-svc.yaml
 
 labels:
 - includeSelectors: true
